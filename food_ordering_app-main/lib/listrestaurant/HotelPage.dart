@@ -53,10 +53,29 @@ class _hotelPageState extends State<hotelPage> {
                                     Icons.arrow_back,
                                     color: Colors.white,
                                   )),
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: IconButton(
+                                    onPressed: () {
+                                      // Navigator.pushReplacement(
+                                      //   context,
+                                      //   MaterialPageRoute(
+                                      //     builder: (context) => MyHomePage(),
+                                      //   ),
+                                      // );
+                                    },
+                                    icon: Icon(
+                                      Icons.fmd_good_outlined,
+                                      size: 35,
+                                      color: Colors.white,
+                                    )),
+                              ),
                             ],
                           ),
                           SizedBox(
-                            height: 200,
+                            height: 100,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -132,7 +151,34 @@ class _hotelPageState extends State<hotelPage> {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
-                                "Today's Special",
+                                "ข้อมูลทางร้าน",
+                                style: TextStyle(
+                                    fontSize: 22, fontWeight: FontWeight.w700),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 20),
+                                  height: 0.5,
+                                  color: Colors.grey,
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          placesWidget("food1", "Sushi Platter"),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                "รีวิว",
                                 style: TextStyle(
                                     fontSize: 22, fontWeight: FontWeight.w700),
                               ),
@@ -151,9 +197,32 @@ class _hotelPageState extends State<hotelPage> {
                           SizedBox(
                             height: 20,
                           ),
-                          placesWidget("food1", "Sushi Platter"),
+                          Container(
+                            height: 200,
+                            color: Colors.black,
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [],
+                              ),
+                            ),
+                          ),
                           SizedBox(
                             height: 20,
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              padding: EdgeInsets.all(15.0),
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(width: 1.0, color: Colors.blue),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Text(
+                                'รีวิวทั้งหมด',
+                                style: TextStyle(color: Colors.blue),
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -168,61 +237,34 @@ class _hotelPageState extends State<hotelPage> {
     );
   }
 
-  Row placesWidget(String img, String name) {
-    return Row(
-      children: [
-        Container(
-          height: 100,
-          width: 100,
-          decoration: BoxDecoration(
-              image:
-                  DecorationImage(image: AssetImage("asset/images/$img.png"))),
-        ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "$name",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.star,
-                    size: 20,
-                    color: Colors.orange,
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 20,
-                    color: Colors.orange,
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 20,
-                    color: Colors.orange,
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 20,
-                    color: Colors.orange,
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 20,
-                    color: Colors.orange,
-                  ),
-                ],
-              ),
-              Text(
-                "Lorem ipsum sits dolar amet is for publishing",
-                style: TextStyle(fontSize: 12),
-              )
-            ],
-          ),
-        ),
-      ],
+  Padding placesWidget(String img, String name) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "ร้าน : 97’ Cafe",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "ติดต่อ : 088-888-8888",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "สถานที่ตั้ง : 452 ตำบล วังกวาง อำเภอ น้ำหนาว เพชรบูรณ์ 67260",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+          ],
+        )
+        // Container(
+        //   height: 100,
+        //   width: 100,
+
+        // ),
+        ,
+      ),
     );
   }
 }
