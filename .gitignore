@@ -22,3 +22,5 @@ food_ordering_app-main/android/app/src/main/AndroidManifest.xml
 food_ordering_app-main/android/app/build.gradle
 food_ordering_app-main/.flutter-plugins-dependencies
 food_ordering_app-main/.flutter-plugins-dependencies
+food_ordering_app-main/.flutter-plugins
+food_ordering_app-main/.flutter-plugins-dependencies
