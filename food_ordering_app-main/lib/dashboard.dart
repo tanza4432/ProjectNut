@@ -4,7 +4,6 @@ import 'package:restaurant/component/block1.dart';
 import 'package:restaurant/component/block2.dart';
 import 'package:restaurant/component/block3.dart';
 import 'package:restaurant/component/detail.dart';
-import 'package:restaurant/theme/Style.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
