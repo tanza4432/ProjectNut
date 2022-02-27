@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../theme/Icons.dart';
 import '../../theme/Style.dart';
 import '../signin/Signin.dart';
 
@@ -68,7 +69,7 @@ class StartPage extends StatelessWidget {
                                       color: Colors.black,
                                     ),
                               ),
-                               Image.network("https://img.icons8.com/stickers/30/000000/trial-version.png"),
+                               Image.network(trials),
                             ],
                           ),
                         ),
@@ -90,7 +91,7 @@ class StartPage extends StatelessWidget {
                                       color: Colors.black,
                                     ),
                               ),
-                              Image.network("https://img.icons8.com/dusk/30/000000/login-rounded-right.png"),
+                              Image.network(login),
                             ],
                           ),
                         ),

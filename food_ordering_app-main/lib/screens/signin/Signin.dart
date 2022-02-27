@@ -87,33 +87,6 @@ class SignInScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 30),
                     child: Row(
                       children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: Colors.white.withOpacity(.5),
-                            ),
-                          ),
-                          child: Icon(
-                            Icons.android,
-                            color: Colors.white.withOpacity(.5),
-                          ),
-                        ),
-                        SizedBox(width: 20),
-                        Container(
-                          padding: EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: Colors.white.withOpacity(.5),
-                            ),
-                          ),
-                          child: Icon(
-                            Icons.chat,
-                            color: Colors.white.withOpacity(.5),
-                          ),
-                        ),
                         Spacer(),
                         InkWell(
                           onTap: () {
