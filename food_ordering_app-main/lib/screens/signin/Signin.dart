@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant/dashboard.dart';
 
 import '../../theme/Style.dart';
 
@@ -114,15 +115,25 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ),
                         Spacer(),
-                        Container(
-                          padding: EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: kPrimaryColor,
-                          ),
-                          child: Icon(
-                            Icons.arrow_forward,
-                            color: Colors.black,
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MyHomePage(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: kPrimaryColor,
+                            ),
+                            child: Icon(
+                              Icons.arrow_forward,
+                              color: Colors.black,
+                            ),
                           ),
                         )
                       ],
