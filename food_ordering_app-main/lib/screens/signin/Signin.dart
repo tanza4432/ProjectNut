@@ -14,7 +14,7 @@ class SignInScreen extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("asset/perosn.jpeg"),
+                  image: AssetImage("asset/signin.jpeg"),
                   fit: BoxFit.cover,
                   alignment: Alignment.bottomCenter,
                 ),
