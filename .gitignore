@@ -20,3 +20,4 @@ food_ordering_app-main/android/gradle/wrapper/gradle-wrapper.properties
 food_ordering_app-main/android/build.gradle
 food_ordering_app-main/android/app/src/main/AndroidManifest.xml
 food_ordering_app-main/android/app/build.gradle
+food_ordering_app-main/.flutter-plugins-dependencies
