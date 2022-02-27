@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant/component/WillPop.dart';
 import 'package:restaurant/dashboard.dart';
+import 'package:restaurant/screens/map/map.dart';
 import 'package:restaurant/theme/Style.dart';
 
 class hotelPage extends StatefulWidget {
@@ -59,12 +60,12 @@ class _hotelPageState extends State<hotelPage> {
                                         BorderRadius.all(Radius.circular(10))),
                                 child: IconButton(
                                     onPressed: () {
-                                      // Navigator.pushReplacement(
-                                      //   context,
-                                      //   MaterialPageRoute(
-                                      //     builder: (context) => MyHomePage(),
-                                      //   ),
-                                      // );
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => MapShow(),
+                                        ),
+                                      );
                                     },
                                     icon: Icon(
                                       Icons.fmd_good_outlined,
