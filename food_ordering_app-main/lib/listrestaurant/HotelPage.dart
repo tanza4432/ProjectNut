@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:restaurant/component/WillPop.dart';
 import 'package:restaurant/dashboard.dart';
+import 'package:restaurant/listrestaurant/detailReview/detailReview.dart';
 import 'package:restaurant/screens/map/map.dart';
 import 'package:restaurant/theme/Style.dart';
 
@@ -24,13 +25,12 @@ class _hotelPageState extends State<hotelPage> {
     "https://phetchabun.org/wp-content/uploads/2018/08/4.jpg",
   ];
 
-  List img = [
-    "https://user-images.githubusercontent.com/26750131/48912712-52415400-ee44-11e8-9994-5054dabd0ab2.png"
-        "https://user-images.githubusercontent.com/26750131/48912712-52415400-ee44-11e8-9994-5054dabd0ab2.png"
-        "https://user-images.githubusercontent.com/26750131/48912712-52415400-ee44-11e8-9994-5054dabd0ab2.png"
-        "https://user-images.githubusercontent.com/26750131/48912712-52415400-ee44-11e8-9994-5054dabd0ab2.png"
-        "https://user-images.githubusercontent.com/26750131/48912712-52415400-ee44-11e8-9994-5054dabd0ab2.png"
-        "https://user-images.githubusercontent.com/26750131/48912712-52415400-ee44-11e8-9994-5054dabd0ab2.png"
+  final List<String> reviewimg = [
+    "https://www.paiduaykan.com/travel/wp-content/uploads/2020/10/44-SON00466.jpg",
+    "https://img.wongnai.com/p/256x256/2019/10/16/c49384e7bdae41a1bce9c21ddd4109a7.jpg",
+    "https://www.paiduaykan.com/travel/wp-content/uploads/2020/10/45.jpg",
+    "https://img.wongnai.com/p/400x0/2020/01/12/3d0f3bc4a62345ff9b71d2f7d8feb734.jpg",
+    "https://img.freepik.com/free-photo/back-view-young-woman-traveller-sitting-enjoying-view-pino-late-coffee-shop-khao-kho-phetchabun-thailand_29285-2327.jpg",
   ];
   bool isVisible = false;
 
@@ -276,140 +276,11 @@ class _hotelPageState extends State<hotelPage> {
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
-                                  Container(
-                                    color: Colors.black,
-                                    width: 380,
-                                    child: Padding(
-                                      padding: EdgeInsets.all(20),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              CircleAvatar(
-                                                child: IconButton(
-                                                  onPressed: () {},
-                                                  icon: Icon(
-                                                    Icons
-                                                        .account_circle_rounded,
-                                                    size: 24,
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 20,
-                                              ),
-                                              Text("User01")
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.white,
-                                              ),
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.white,
-                                              ),
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.white,
-                                              ),
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.white,
-                                              ),
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.white,
-                                              ),
-                                              Text(
-                                                " 250 Reviews",
-                                                style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 13),
-                                              )
-                                            ],
-                                          ),
-                                          Text(
-                                              "ดกเ่สกด่เสกาด่เสากด่เสากด่เสากด่เสาก่ดเสากด่เsdfssdf sdfsdfsdf"),
-                                          SizedBox(height: 24.0),
-                                          if (!isVisible)
-                                            InkWell(
-                                              onTap: () {
-                                                setState(() {
-                                                  isVisible = !isVisible;
-                                                });
-                                              },
-                                              child: Container(
-                                                child: Text("ดูรูปภาพ"),
-                                              ),
-                                            ),
-                                          SizedBox(height: 24.0),
-                                          if (isVisible)
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                color: Colors.transparent,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  "https://user-images.githubusercontent.com/26750131/48912712-52415400-ee44-11e8-9994-5054dabd0ab2.png",
-                                                  fit: BoxFit.fill,
-                                                ),
-                                              ),
-                                            ),
-                                          // Expanded(
-                                          //   child: Padding(
-                                          //     padding: EdgeInsets.symmetric(
-                                          //         vertical: 18.0),
-                                          //     child: StaggeredGridView
-                                          //         .countBuilder(
-                                          //       crossAxisCount: 2,
-                                          //       crossAxisSpacing: 12,
-                                          //       mainAxisSpacing: 12,
-                                          //       itemCount: img.length,
-                                          //       itemBuilder: (context, index) {
-                                          //         return Container(
-                                          //           decoration: BoxDecoration(
-                                          //             color: Colors.transparent,
-                                          //             borderRadius:
-                                          //                 BorderRadius.circular(
-                                          //                     8.0),
-                                          //           ),
-                                          //           child: ClipRRect(
-                                          //             borderRadius:
-                                          //                 BorderRadius.circular(
-                                          //                     8.0),
-                                          //             child: Image.network(
-                                          //               img[index],
-                                          //               fit: BoxFit.fill,
-                                          //             ),
-                                          //           ),
-                                          //         );
-                                          //       },
-                                          //       staggeredTileBuilder: (index) {
-                                          //         return new StaggeredTile
-                                          //                 .count(1,
-                                          //             index.isEven ? 1.2 : 2);
-                                          //       },
-                                          //     ),
-                                          //   ),
-                                          // ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
+                                  detailReview(),
+                                  detailReview(),
+                                  detailReview(),
+                                  detailReview(),
+                                  detailReview()
                                 ],
                               ),
                             ),
