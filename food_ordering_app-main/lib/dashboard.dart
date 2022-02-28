@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           onTap: () {},
                           child: Icon(
                             Icons.account_circle,
-                            color: Colors.black,
+                            color: Colors.white,
                             size: 45,
                           ),
                         ),
@@ -111,15 +111,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     height: 20,
                   ),
-                  deatil("hotel1", "Sushi Den"),
+                  deatil("hotel1", "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์"),
                   SizedBox(
                     height: 20,
                   ),
-                  deatil("hotel2", "Hatsuhana Sushi"),
+                  deatil("hotel2", "ลิตเติ้ลวินเทอร์คาเฟ่"),
                   SizedBox(
                     height: 20,
                   ),
-                  deatil("hotel3", "Sushi Maaki"),
+                  deatil("hotel3", "Coffee View Phetchabun"),
                 ],
               ),
             ),

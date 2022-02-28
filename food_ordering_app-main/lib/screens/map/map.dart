@@ -94,19 +94,19 @@ class _MapShowState extends State<MapShow> {
     //   if (item?.image == "") {
     //     // item?.image = DefaultImage;
     //   }
-    //   setState(() {
-    //     _markers.add(
-    //       Marker(
-    //           markerId: MarkerId(item.company),
-    //           position: LatLng(item.latitude, item.longitude),
-    //           onTap: () {
-    //             setState(() {
-    //               // _datadetail = item;
-    //               _pinPillPosition = 40;
-    //             });
-    //           }),
-    //     );
-    //   });
+      setState(() {
+        _markers.add(
+          Marker(
+              markerId: MarkerId("item.company"),
+              position: LatLng(16.723086, 101.750202),
+              onTap: () {
+                setState(() {
+                  // _datadetail = item;
+                  _pinPillPosition = 40;
+                });
+              }),
+        );
+      });
     // }
     mapController = controller;
   }
@@ -242,7 +242,7 @@ class _MapShowState extends State<MapShow> {
               child: Column(
                 children: [
                   Text(
-                    "บริษัท " ,
+                    "ชื่อร้าน" ,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                     style: TextStyle(color: Colors.black),

@@ -5,11 +5,15 @@ import 'package:restaurant/screens/map/map.dart';
 import 'package:restaurant/theme/Style.dart';
 
 class hotelPage extends StatefulWidget {
+  hotelPage(this.name);
+  String name;
   @override
-  _hotelPageState createState() => _hotelPageState();
+  _hotelPageState createState() => _hotelPageState(name);
 }
 
 class _hotelPageState extends State<hotelPage> {
+  _hotelPageState(this.name);
+  String name;
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -88,7 +92,7 @@ class _hotelPageState extends State<hotelPage> {
                                     height: 20,
                                   ),
                                   Text(
-                                    "Yoshimasa Sushi",
+                                   name,
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w700,
@@ -171,7 +175,7 @@ class _hotelPageState extends State<hotelPage> {
                           SizedBox(
                             height: 10,
                           ),
-                          placesWidget("food1", "Sushi Platter"),
+                          placesWidget("food1", name),
                           SizedBox(
                             height: 10,
                           ),
@@ -246,7 +250,7 @@ class _hotelPageState extends State<hotelPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "ร้าน : 97’ Cafe",
+              name,
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
             Text(

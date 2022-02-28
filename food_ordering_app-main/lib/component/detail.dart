@@ -66,7 +66,7 @@ class deatil extends StatelessWidget {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => hotelPage(),
+                builder: (context) => hotelPage(name),
               ),
             );
           },
