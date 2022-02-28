@@ -3,6 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:restaurant/component/alert.dart';
+import 'package:restaurant/dashboard.dart';
 
 class MapShow extends StatefulWidget {
   // MapShow(this.token, this.typeUser);
@@ -94,19 +95,19 @@ class _MapShowState extends State<MapShow> {
     //   if (item?.image == "") {
     //     // item?.image = DefaultImage;
     //   }
-      setState(() {
-        _markers.add(
-          Marker(
-              markerId: MarkerId("item.company"),
-              position: LatLng(16.723086, 101.750202),
-              onTap: () {
-                setState(() {
-                  // _datadetail = item;
-                  _pinPillPosition = 40;
-                });
-              }),
-        );
-      });
+    setState(() {
+      _markers.add(
+        Marker(
+            markerId: MarkerId("item.company"),
+            position: LatLng(16.723086, 101.750202),
+            onTap: () {
+              setState(() {
+                // _datadetail = item;
+                _pinPillPosition = 40;
+              });
+            }),
+      );
+    });
     // }
     mapController = controller;
   }
@@ -126,6 +127,30 @@ class _MapShowState extends State<MapShow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MyHomePage(),
+              ),
+            );
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(16),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: FutureBuilder(
         future: _getLocation(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -242,14 +267,18 @@ class _MapShowState extends State<MapShow> {
               child: Column(
                 children: [
                   Text(
-                    "ชื่อร้าน" ,
+                    "ชื่อร้าน",
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                   Text(
                     "ดูรายละเอียดเพิ่มเติม... ",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                 ],
               ),

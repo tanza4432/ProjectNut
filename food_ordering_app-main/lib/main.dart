@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant/screens/start/Start.dart';
+import 'package:restaurant/dashboard.dart';
 import 'theme/Style.dart';
 
 void main() => runApp(MyApp());
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StartPage();
+    return MyHomePage();
   }
 }
 
