@@ -31,7 +31,7 @@ class _hotelPageState extends State<hotelPage> {
                       decoration: BoxDecoration(
                           color: blue,
                           image: DecorationImage(
-                              image: AssetImage("asset/images/hotelBig.png"),
+                              image: AssetImage("assets/images/hotelBig.png"),
                               fit: BoxFit.cover),
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(40),

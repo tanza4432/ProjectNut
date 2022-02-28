@@ -29,7 +29,7 @@ class block2 extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("asset/images/food2.png"))),
+                        image: AssetImage("assets/images/food2.png"))),
               ),
             ),
             SizedBox(

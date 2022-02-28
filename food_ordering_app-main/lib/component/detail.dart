@@ -15,7 +15,7 @@ class deatil extends StatelessWidget {
           width: 100,
           decoration: BoxDecoration(
               image:
-                  DecorationImage(image: AssetImage("asset/images/$img.png"))),
+                  DecorationImage(image: AssetImage("assets/images/$img.png"))),
         ),
         Expanded(
           child: Column(

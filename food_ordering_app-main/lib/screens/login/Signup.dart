@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:restaurant/screens/login/Signin.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key key}) : super(key: key);
@@ -14,18 +14,15 @@ class _SignupScreenState extends State<SignupScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("asset/bg_register.png"), fit: BoxFit.cover),
+            image: AssetImage("assets/register.png"), fit: BoxFit.cover),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
         body: Stack(
           children: [
+            SizedBox(height: 200),
             Container(
-              padding: EdgeInsets.only(left: 35, top: 30),
+              padding: EdgeInsets.only(left: 35, top: 130),
               child: Text(
                 'Create\nAccount',
                 style: TextStyle(color: Colors.white, fontSize: 33),
@@ -34,7 +31,7 @@ class _SignupScreenState extends State<SignupScreen> {
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.28),
+                    top: MediaQuery.of(context).size.height * 0.425),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -116,24 +113,18 @@ class _SignupScreenState extends State<SignupScreen> {
                             height: 40,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                'Sign Up',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 27,
-                                    fontWeight: FontWeight.w700),
-                              ),
+                              SizedBox(width: 275),
                               CircleAvatar(
                                 radius: 30,
                                 backgroundColor: Color(0xff4c505b),
                                 child: IconButton(
-                                    color: Colors.white,
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.arrow_forward,
-                                    )),
+                                  color: Colors.white,
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.arrow_forward,
+                                  ),
+                                ),
                               )
                             ],
                           ),
@@ -141,15 +132,15 @@ class _SignupScreenState extends State<SignupScreen> {
                             height: 40,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              SizedBox(width: 51),
                               TextButton(
                                 onPressed: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //       builder: (context) => Login7()),
-                                  // );
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => SignInScreen()),
+                                  );
                                 },
                                 child: Text(
                                   'Sign In',
