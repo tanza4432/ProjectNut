@@ -7,8 +7,8 @@ const firestore = firebase.firestore();
 const addAccount = async (req, res, next) => {
   try {
     const data = req.body;
-    await firestore.collection("login").doc().set(data);
-    res.send("เพิ่มบัญชีสำเร็จ");
+    await firestore.collection("account").doc().set(data);
+    res.status(200).send(true);
   } catch (error) {
     res.status(400).send(error.message);
   }
@@ -42,15 +42,18 @@ const Login = async (req, res, next) => {
   try {
     const email = req.params.email;
     const password = req.params.password;
-    const account = await firestore
-      .collection("login")
+    const accounts = await firestore
+      .collection("account")
       .where("email", "==", email)
-      .where("password", "==", password)
-      .get();
-    if (account.empty) {
-      res.status(404).send("ไม่พบข้อมูลใด");
+      .where("password", "==", password);
+    const fetchAccount = await accounts.get();
+    if (fetchAccount.empty) {
+      res.status(404).send({ type: "none" });
     }
-    return res.status(200).send(account.data());
+    return res.status(200).send({
+      type: fetchAccount.docs[0].data().type,
+      name: fetchAccount.docs[0].data().name,
+    });
   } catch (error) {
     res.status(400).send(error.message);
   }

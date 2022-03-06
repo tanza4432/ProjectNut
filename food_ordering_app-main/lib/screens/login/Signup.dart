@@ -74,19 +74,12 @@ class _SignupScreenState extends State<SignupScreen> {
                                     // ignore: deprecated_member_use
                                     child: RaisedButton(
                                       onPressed: () {
-                                        print("Email : " + widget.email.text);
-                                        print("password : " + widget.password.text);
-                                        print("password confirm : " + widget.passwordconfirm.text);
-                                        print("Tel : " + widget.tel.text);
-                                        // check if email is valid
                                         if (widget.email.text.contains("@")) {
-                                          // check if password is valid
                                           if (widget.password.text.length >= 8) {
-                                            // check if password is same
                                             if (widget.password.text ==
                                                 widget.passwordconfirm.text) {
-                                              // check if tel is valid
                                               if (widget.tel.text.length == 10) {
+
                                                 showDialog(
                                               context: context,
                                               builder: (BuildContext context) {
@@ -96,7 +89,11 @@ class _SignupScreenState extends State<SignupScreen> {
                                                     FlatButton(
                                                       child: Text("ตกลง"),
                                                       onPressed: () {
-                                                        Navigator.pop(context);
+                                                        Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                                builder: (context) =>
+                                                                    SignInScreen()));
                                                       },
                                                     )
                                                   ],
