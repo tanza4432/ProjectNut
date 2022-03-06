@@ -8,7 +8,7 @@ const addAccount = async (req, res, next) => {
   try {
     const data = req.body;
     await firestore.collection("account").doc().set(data);
-    res.status(200).send(true);
+    res.status(200).send("true");
   } catch (error) {
     res.status(400).send(error.message);
   }

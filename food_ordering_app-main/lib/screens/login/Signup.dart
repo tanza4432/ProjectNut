@@ -3,18 +3,21 @@ import 'package:restaurant/component/WillPop.dart';
 import 'package:restaurant/screens/login/Signin.dart';
 import 'package:restaurant/theme/Style.dart';
 
+import '../../controllers/LoginController.dart';
+import '../../model/LoginModel.dart';
+
 class SignupScreen extends StatefulWidget {
+  TextEditingController name = new TextEditingController();
   TextEditingController email = new TextEditingController();
   TextEditingController password = new TextEditingController();
   TextEditingController passwordconfirm = new TextEditingController();
   TextEditingController tel = new TextEditingController();
-  
+
   @override
   _SignupScreenState createState() => _SignupScreenState();
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,6 +51,11 @@ class _SignupScreenState extends State<SignupScreen> {
                         child: Column(
                           children: [
                             buttonRegister(
+                                "Full Name", Icons.person, widget.name),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            buttonRegister(
                                 "Email", Icons.alternate_email, widget.email),
                             SizedBox(
                               height: 20,
@@ -62,7 +70,8 @@ class _SignupScreenState extends State<SignupScreen> {
                             SizedBox(
                               height: 20,
                             ),
-                            buttonRegister("Tel", Icons.alternate_email, widget.tel),
+                            buttonRegister(
+                                "Tel", Icons.alternate_email, widget.tel),
                             SizedBox(
                               height: 20,
                             ),
@@ -74,66 +83,81 @@ class _SignupScreenState extends State<SignupScreen> {
                                     // ignore: deprecated_member_use
                                     child: RaisedButton(
                                       onPressed: () {
-                                        if (widget.email.text.contains("@")) {
-                                          if (widget.password.text.length >= 8) {
-                                            if (widget.password.text ==
-                                                widget.passwordconfirm.text) {
-                                              if (widget.tel.text.length == 10) {
-
-                                                showDialog(
-                                              context: context,
-                                              builder: (BuildContext context) {
-                                                return AlertDialog(
-                                                  title: Text("สมัครสมาชิกเรียบร้อย"),
-                                                  actions: [
-                                                    FlatButton(
-                                                      child: Text("ตกลง"),
-                                                      onPressed: () {
-                                                        Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder: (context) =>
-                                                                    SignInScreen()));
-                                                      },
-                                                    )
-                                                  ],
-                                                );
-                                              },
-                                              );
+                                        if (widget.name.text != "") {
+                                          if (widget.email.text.contains("@")) {
+                                            if (widget.password.text.length >=
+                                                8) {
+                                              if (widget.password.text ==
+                                                  widget.passwordconfirm.text) {
+                                                if (widget.tel.text.length ==
+                                                    10) {
+                                                  RegisterController(
+                                                      context,
+                                                      widget.email.text,
+                                                      widget.name.text,
+                                                      widget.password.text,
+                                                      widget.tel.text);
+                                                } else {
+                                                  showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return AlertDialog(
+                                                        title: Text(
+                                                            "กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง"),
+                                                        actions: [
+                                                          FlatButton(
+                                                            child: Text("ตกลง"),
+                                                            onPressed: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                          )
+                                                        ],
+                                                      );
+                                                    },
+                                                  );
+                                                }
                                               } else {
                                                 showDialog(
-                                              context: context,
-                                              builder: (BuildContext context) {
-                                                return AlertDialog(
-                                                  title: Text("กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง"),
-                                                  actions: [
-                                                    FlatButton(
-                                                      child: Text("ตกลง"),
-                                                      onPressed: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                    )
-                                                  ],
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return AlertDialog(
+                                                      title: Text(
+                                                          "รหัสผ่านไม่ตรงกัน"),
+                                                      actions: [
+                                                        FlatButton(
+                                                          child: Text("ตกลง"),
+                                                          onPressed: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                        )
+                                                      ],
+                                                    );
+                                                  },
                                                 );
-                                              },
-                                              );
                                               }
                                             } else {
                                               showDialog(
-                                              context: context,
-                                              builder: (BuildContext context) {
-                                                return AlertDialog(
-                                                  title: Text("รหัสผ่านไม่ตรงกัน"),
-                                                  actions: [
-                                                    FlatButton(
-                                                      child: Text("ตกลง"),
-                                                      onPressed: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                    )
-                                                  ],
-                                                );
-                                              },
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return AlertDialog(
+                                                    title: Text(
+                                                        "รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัว"),
+                                                    actions: [
+                                                      FlatButton(
+                                                        child: Text("ตกลง"),
+                                                        onPressed: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                      )
+                                                    ],
+                                                  );
+                                                },
                                               );
                                             }
                                           } else {
@@ -141,7 +165,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                               context: context,
                                               builder: (BuildContext context) {
                                                 return AlertDialog(
-                                                  title: Text("รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัว"),
+                                                  title:
+                                                      Text("อีเมลไม่ถูกต้อง"),
                                                   actions: [
                                                     FlatButton(
                                                       child: Text("ตกลง"),
@@ -152,25 +177,26 @@ class _SignupScreenState extends State<SignupScreen> {
                                                   ],
                                                 );
                                               },
-                                              );
+                                            );
                                           }
                                         } else {
                                           showDialog(
-                                              context: context,
-                                              builder: (BuildContext context) {
-                                                return AlertDialog(
-                                                  title: Text("อีเมลไม่ถูกต้อง"),
-                                                  actions: [
-                                                    FlatButton(
-                                                      child: Text("ตกลง"),
-                                                      onPressed: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                    )
-                                                  ],
-                                                );
-                                              },
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return AlertDialog(
+                                                title: Text(
+                                                    "กรุณากรอกข้อมูลให้ครบถ้วน"),
+                                                actions: [
+                                                  FlatButton(
+                                                    child: Text("ตกลง"),
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                  )
+                                                ],
                                               );
+                                            },
+                                          );
                                         }
                                       },
                                       color: Colors.white,
