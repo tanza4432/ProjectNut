@@ -81,40 +81,99 @@ class _SignupScreenState extends State<SignupScreen> {
                                         // check if email is valid
                                         if (widget.email.text.contains("@")) {
                                           // check if password is valid
-                                          if (widget.password.text.length > 5) {
+                                          if (widget.password.text.length >= 8) {
                                             // check if password is same
                                             if (widget.password.text ==
                                                 widget.passwordconfirm.text) {
                                               // check if tel is valid
                                               if (widget.tel.text.length == 10) {
-                                                print("Signup Success");
-                                              } else {
-                                                print("Tel is not valid");
-                                              }
-                                            } else {
-                                              print("Password is not same");
-                                            }
-                                          } else {
-                                            print("Password is not valid");
-                                          }
-                                        } else {
-                                          print("Email is not valid");
-                                          // Email is not valid alert message box
-                                          showDialog(
+                                                showDialog(
                                               context: context,
                                               builder: (BuildContext context) {
                                                 return AlertDialog(
-                                                  title: Text("Email is not valid"),
+                                                  title: Text("สมัครสมาชิกเรียบร้อย"),
                                                   actions: [
                                                     FlatButton(
-                                                      child: Text("Close"),
+                                                      child: Text("ตกลง"),
                                                       onPressed: () {
                                                         Navigator.pop(context);
                                                       },
                                                     )
                                                   ],
                                                 );
-                                              },);
+                                              },
+                                              );
+                                              } else {
+                                                showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: Text("กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง"),
+                                                  actions: [
+                                                    FlatButton(
+                                                      child: Text("ตกลง"),
+                                                      onPressed: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                    )
+                                                  ],
+                                                );
+                                              },
+                                              );
+                                              }
+                                            } else {
+                                              showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: Text("รหัสผ่านไม่ตรงกัน"),
+                                                  actions: [
+                                                    FlatButton(
+                                                      child: Text("ตกลง"),
+                                                      onPressed: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                    )
+                                                  ],
+                                                );
+                                              },
+                                              );
+                                            }
+                                          } else {
+                                            showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: Text("รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัว"),
+                                                  actions: [
+                                                    FlatButton(
+                                                      child: Text("ตกลง"),
+                                                      onPressed: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                    )
+                                                  ],
+                                                );
+                                              },
+                                              );
+                                          }
+                                        } else {
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: Text("อีเมลไม่ถูกต้อง"),
+                                                  actions: [
+                                                    FlatButton(
+                                                      child: Text("ตกลง"),
+                                                      onPressed: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                    )
+                                                  ],
+                                                );
+                                              },
+                                              );
                                         }
                                       },
                                       color: Colors.white,
