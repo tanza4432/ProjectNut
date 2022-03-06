@@ -50,14 +50,14 @@ class SignInScreen extends StatelessWidget {
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(4)),
-                                    borderSide:
-                                        BorderSide(width: 1, color: Colors.black),
+                                    borderSide: BorderSide(
+                                        width: 1, color: Colors.black),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(4)),
-                                    borderSide:
-                                        BorderSide(width: 1, color: Colors.black),
+                                    borderSide: BorderSide(
+                                        width: 1, color: Colors.black),
                                   ),
                                   icon: Icon(
                                     Icons.alternate_email,
@@ -86,14 +86,14 @@ class SignInScreen extends StatelessWidget {
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(4)),
-                                    borderSide:
-                                        BorderSide(width: 1, color: Colors.black),
+                                    borderSide: BorderSide(
+                                        width: 1, color: Colors.black),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(4)),
-                                    borderSide:
-                                        BorderSide(width: 1, color: Colors.black),
+                                    borderSide: BorderSide(
+                                        width: 1, color: Colors.black),
                                   ),
                                   icon: Icon(
                                     Icons.lock,
@@ -172,6 +172,23 @@ class SignInScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MyHomePage()),
+                                    );
+                                  },
+                                  child: Text(
+                                    'ข้าม',
+                                    style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Color.fromARGB(255, 86, 127, 240),
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ),
                                 SizedBox(width: 30),
                               ],
                             )
@@ -187,119 +204,5 @@ class SignInScreen extends StatelessWidget {
         ),
       ),
     );
-
-    // Scaffold(
-    //   body: Column(
-    //     children: <Widget>[
-    //       Expanded(
-    //         flex: 3,
-    //         child: Container(
-    //           decoration: BoxDecoration(
-    //             image: DecorationImage(
-    //               image: AssetImage("asset/signin.jpeg"),
-    //               fit: BoxFit.cover,
-    //               alignment: Alignment.bottomCenter,
-    //             ),
-    //           ),
-    //         ),
-    //       ),
-    //       Expanded(
-    //         flex: 4,
-    //         child: Padding(
-    //           padding: const EdgeInsets.symmetric(horizontal: 16),
-    //           child: Column(
-    //             children: <Widget>[
-    //               Row(
-    //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //                 children: <Widget>[
-    //                   Text(
-    //                     "SIGN IN",
-    //                     style: Theme.of(context).textTheme.headline4,
-    //                   ),
-    //                   Text(
-    //                     "SIGN UP",
-    //                     style: Theme.of(context).textTheme.button,
-    //                   ),
-    //                 ],
-    //               ),
-    //               Spacer(),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(bottom: 40),
-    //                 child: Row(
-    //                   crossAxisAlignment: CrossAxisAlignment.center,
-    //                   children: <Widget>[
-    //                     Padding(
-    //                       padding: const EdgeInsets.only(right: 16),
-    //                       child: Icon(
-    //                         Icons.alternate_email,
-    //                         color: kPrimaryColor,
-    //                       ),
-    //                     ),
-    //                     Expanded(
-    //                       child: TextField(
-    //                         decoration: InputDecoration(
-    //                           hintText: "Email Address",
-    //                         ),
-    //                       ),
-    //                     )
-    //                   ],
-    //                 ),
-    //               ),
-    //               Row(
-    //                 crossAxisAlignment: CrossAxisAlignment.center,
-    //                 children: <Widget>[
-    //                   Padding(
-    //                     padding: const EdgeInsets.only(right: 16),
-    //                     child: Icon(
-    //                       Icons.lock,
-    //                       color: kPrimaryColor,
-    //                     ),
-    //                   ),
-    //                   Expanded(
-    //                     child: TextField(
-    //                       decoration: InputDecoration(
-    //                         hintText: "Password",
-    //                       ),
-    //                     ),
-    //                   ),
-    //                 ],
-    //               ),
-    //               Spacer(),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(bottom: 30),
-    //                 child: Row(
-    //                   children: <Widget>[
-    //                     Spacer(),
-    //                     InkWell(
-    //                       onTap: () {
-    //                         Navigator.pushReplacement(
-    //                           context,
-    //                           MaterialPageRoute(
-    //                             builder: (context) => MyHomePage(),
-    //                           ),
-    //                         );
-    //                       },
-    //                       child: Container(
-    //                         padding: EdgeInsets.all(16),
-    //                         decoration: BoxDecoration(
-    //                           shape: BoxShape.circle,
-    //                           color: kPrimaryColor,
-    //                         ),
-    //                         child: Icon(
-    //                           Icons.arrow_forward,
-    //                           color: Colors.black,
-    //                         ),
-    //                       ),
-    //                     )
-    //                   ],
-    //                 ),
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }

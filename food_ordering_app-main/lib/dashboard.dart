@@ -4,6 +4,7 @@ import 'package:restaurant/component/block1.dart';
 import 'package:restaurant/component/block2.dart';
 import 'package:restaurant/component/block3.dart';
 import 'package:restaurant/component/detail.dart';
+import 'package:restaurant/screens/login/Signin.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -36,15 +37,29 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(right: 20),
+                      //   child: InkWell(
+                      //     onTap: () {},
+                      //     child: Icon(
+                      //       Icons.account_circle,
+                      //       color: Colors.white,
+                      //       size: 45,
+                      //     ),
+                      //   ),
+                      // )
                       Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: InkWell(
-                          onTap: () {},
-                          child: Icon(
-                            Icons.account_circle,
-                            color: Colors.white,
-                            size: 45,
-                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignInScreen(),
+                              ),
+                            );
+                          },
+                          child: Text("เข้าสู่ระบบ"),
                         ),
                       )
                     ],

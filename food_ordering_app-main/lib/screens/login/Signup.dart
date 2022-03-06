@@ -4,15 +4,16 @@ import 'package:restaurant/screens/login/Signin.dart';
 import 'package:restaurant/theme/Style.dart';
 
 class SignupScreen extends StatefulWidget {
+  TextEditingController email = new TextEditingController();
+  TextEditingController password = new TextEditingController();
+  TextEditingController passwordconfirm = new TextEditingController();
+  TextEditingController tel = new TextEditingController();
+  
   @override
   _SignupScreenState createState() => _SignupScreenState();
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  TextEditingController email = new TextEditingController();
-  TextEditingController password = new TextEditingController();
-  TextEditingController passwordconfirm = new TextEditingController();
-  TextEditingController tel = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,41 +48,87 @@ class _SignupScreenState extends State<SignupScreen> {
                         child: Column(
                           children: [
                             buttonRegister(
-                                "Email", Icons.alternate_email, email),
+                                "Email", Icons.alternate_email, widget.email),
                             SizedBox(
                               height: 20,
                             ),
                             buttonRegisterPassword(
-                                "Password", Icons.lock, password),
+                                "Password", Icons.lock, widget.password),
                             SizedBox(
                               height: 20,
                             ),
                             buttonRegisterPassword("Password Confirm",
-                                Icons.lock, passwordconfirm),
+                                Icons.lock, widget.passwordconfirm),
                             SizedBox(
                               height: 20,
                             ),
-                            buttonRegister(
-                                "Tel", Icons.alternate_email, tel),
+                            buttonRegister("Tel", Icons.alternate_email, widget.tel),
                             SizedBox(
                               height: 20,
                             ),
                             Row(
                               children: [
-                                SizedBox(width: 275),
-                                CircleAvatar(
-                                  radius: 30,
-                                  backgroundColor: Color(0xff4c505b),
-                                  child: IconButton(
-                                    color: Colors.white,
-                                    onPressed: () {
-                                      print(email.text);
-                                    },
-                                    icon: Icon(
-                                      Icons.arrow_forward,
+                                SizedBox(width: 39),
+                                Expanded(
+                                  child: Container(
+                                    // ignore: deprecated_member_use
+                                    child: RaisedButton(
+                                      onPressed: () {
+                                        print("Email : " + widget.email.text);
+                                        print("password : " + widget.password.text);
+                                        print("password confirm : " + widget.passwordconfirm.text);
+                                        print("Tel : " + widget.tel.text);
+                                        // check if email is valid
+                                        if (widget.email.text.contains("@")) {
+                                          // check if password is valid
+                                          if (widget.password.text.length > 5) {
+                                            // check if password is same
+                                            if (widget.password.text ==
+                                                widget.passwordconfirm.text) {
+                                              // check if tel is valid
+                                              if (widget.tel.text.length == 10) {
+                                                print("Signup Success");
+                                              } else {
+                                                print("Tel is not valid");
+                                              }
+                                            } else {
+                                              print("Password is not same");
+                                            }
+                                          } else {
+                                            print("Password is not valid");
+                                          }
+                                        } else {
+                                          print("Email is not valid");
+                                          // Email is not valid alert message box
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return AlertDialog(
+                                                  title: Text("Email is not valid"),
+                                                  actions: [
+                                                    FlatButton(
+                                                      child: Text("Close"),
+                                                      onPressed: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                    )
+                                                  ],
+                                                );
+                                              },);
+                                        }
+                                      },
+                                      color: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: Text(
+                                        "Sign Up",
+                                        style: TextStyle(
+                                            fontSize: 20, color: Colors.black),
+                                      ),
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             SizedBox(
@@ -126,7 +173,7 @@ class _SignupScreenState extends State<SignupScreen> {
 }
 
 class buttonRegister extends StatelessWidget {
-  buttonRegister(this.text, this.icon, typeController);
+  buttonRegister(this.text, this.icon, this.typeController);
   String text;
   var icon;
   TextEditingController typeController;
@@ -165,7 +212,7 @@ class buttonRegister extends StatelessWidget {
 }
 
 class buttonRegisterPassword extends StatelessWidget {
-  buttonRegisterPassword(this.text, this.icon, typeController);
+  buttonRegisterPassword(this.text, this.icon, this.typeController);
   String text;
   var icon;
   TextEditingController typeController;
