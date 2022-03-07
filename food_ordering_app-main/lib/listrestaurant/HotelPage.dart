@@ -8,15 +8,17 @@ import 'package:restaurant/screens/map/map.dart';
 import 'package:restaurant/theme/Style.dart';
 
 class hotelPage extends StatefulWidget {
-  hotelPage(this.name);
-  String name;
+  final type;
+  final user;
+  final name;
+  hotelPage(this.name, this.type, this.user);
   @override
   _hotelPageState createState() => _hotelPageState(name);
 }
 
 class _hotelPageState extends State<hotelPage> {
   _hotelPageState(this.name);
-  String name;
+  final name;
 
   final List<String> imageList = [
     "https://phetchabun.org/wp-content/uploads/2018/08/2.jpg",
@@ -73,7 +75,8 @@ class _hotelPageState extends State<hotelPage> {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => MyHomePage(),
+                                        builder: (context) => MyHomePage(
+                                            widget.type, widget.user),
                                       ),
                                     );
                                   },
@@ -90,7 +93,8 @@ class _hotelPageState extends State<hotelPage> {
                                       Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => MapShow(),
+                                          builder: (context) =>
+                                              MapShow(widget.type, widget.user),
                                         ),
                                       );
                                     },

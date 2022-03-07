@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: kBackgroundColor,
         textTheme: TextTheme(
-          headline4: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          headline4:
+              TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           button: TextStyle(color: kPrimaryColor),
           headline1:
               TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
@@ -36,8 +37,6 @@ class MyApp extends StatelessWidget {
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MyHomePage();
+    return MyHomePage("none", "Guest user");
   }
 }
-
-

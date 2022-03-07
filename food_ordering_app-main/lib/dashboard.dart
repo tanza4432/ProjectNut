@@ -7,6 +7,9 @@ import 'package:restaurant/component/detail.dart';
 import 'package:restaurant/screens/login/Signin.dart';
 
 class MyHomePage extends StatefulWidget {
+  final type;
+  final name;
+  MyHomePage(this.type, this.name);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -37,31 +40,49 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      // Padding(
-                      //   padding: const EdgeInsets.only(right: 20),
-                      //   child: InkWell(
-                      //     onTap: () {},
-                      //     child: Icon(
-                      //       Icons.account_circle,
-                      //       color: Colors.white,
-                      //       size: 45,
-                      //     ),
-                      //   ),
-                      // )
-                      Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SignInScreen(),
+                      widget.type == "none"
+                          ? Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SignInScreen(),
+                                    ),
+                                  );
+                                },
+                                child: Text("เข้าสู่ระบบ"),
                               ),
-                            );
-                          },
-                          child: Text("เข้าสู่ระบบ"),
-                        ),
-                      )
+                            )
+                          : Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: InkWell(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: Text("บัญชี: " + widget.name),
+                                        actions: [
+                                          FlatButton(
+                                            child: Text("ตกลง"),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                          )
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Icon(
+                                  Icons.account_circle,
+                                  color: Colors.white,
+                                  size: 45,
+                                ),
+                              ),
+                            )
                     ],
                   ),
                   SizedBox(
@@ -126,15 +147,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     height: 20,
                   ),
-                  deatil("hotel1", "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์"),
+                  deatil(
+                    "hotel1",
+                    "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์",
+                    widget.type,
+                    widget.name,
+                  ),
                   SizedBox(
                     height: 20,
                   ),
-                  deatil("hotel2", "ลิตเติ้ลวินเทอร์คาเฟ่"),
+                  deatil(
+                    "hotel2",
+                    "ลิตเติ้ลวินเทอร์คาเฟ่",
+                    widget.type,
+                    widget.name,
+                  ),
                   SizedBox(
                     height: 20,
                   ),
-                  deatil("hotel3", "Coffee View Phetchabun"),
+                  deatil(
+                    "hotel3",
+                    "Coffee View Phetchabun",
+                    widget.type,
+                    widget.name,
+                  ),
                 ],
               ),
             ),

@@ -6,30 +6,16 @@ import 'package:restaurant/component/alert.dart';
 import 'package:restaurant/dashboard.dart';
 
 class MapShow extends StatefulWidget {
-  // MapShow(this.token, this.typeUser);
-  // var token;
-  // var typeUser;
+  final type;
+  final name;
+  MapShow(this.type, this.name);
   @override
   _MapShowState createState() => _MapShowState();
 }
 
 class _MapShowState extends State<MapShow> {
-  // _MapShowState(this.token, this.typeUser);
-  // var token;
-  // var typeUser;
   Position userLocation;
   GoogleMapController mapController;
-
-  // LocationJobModel _datadetail = LocationJobModel(
-  //   image: "",
-  //   province: "",
-  //   subDistrict: "",
-  //   jobId: "",
-  //   company: "",
-  //   district: "",
-  // );
-
-  // LocationJobModel _sourcePinInfo;
 
   Set<Marker> _markers = {};
   BitmapDescriptor mapMarker;
@@ -89,12 +75,6 @@ class _MapShowState extends State<MapShow> {
   void _onMapCreated(GoogleMapController controller) async {
     userLocation = await Geolocator()
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
-    // List<LocationJobModel> data = await GetLocationJob(
-    //     userLocation.latitude.toString(), userLocation.longitude.toString());
-    // for (LocationJobModel item in data) {
-    //   if (item?.image == "") {
-    //     // item?.image = DefaultImage;
-    //   }
     setState(() {
       _markers.add(
         Marker(
@@ -134,7 +114,7 @@ class _MapShowState extends State<MapShow> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => MyHomePage(),
+                builder: (context) => MyHomePage(widget.type, widget.name),
               ),
             );
           },

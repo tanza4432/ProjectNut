@@ -3,9 +3,11 @@ import 'package:restaurant/listrestaurant/HotelPage.dart';
 import 'package:restaurant/theme/Style.dart';
 
 class deatil extends StatelessWidget {
-  deatil(this.img, this.name);
-  String img;
-  String name;
+  final img;
+  final name;
+  final type;
+  final user;
+  deatil(this.img, this.name, this.type, this.user);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -66,7 +68,11 @@ class deatil extends StatelessWidget {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => hotelPage(name),
+                builder: (context) => hotelPage(
+                  name,
+                  type,
+                  name,
+                ),
               ),
             );
           },

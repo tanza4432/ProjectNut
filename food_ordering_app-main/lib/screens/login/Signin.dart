@@ -3,9 +3,13 @@ import 'package:restaurant/component/WillPop.dart';
 import 'package:restaurant/dashboard.dart';
 import 'package:restaurant/screens/login/Signup.dart';
 
+import '../../controllers/LoginController.dart';
 import '../../theme/Style.dart';
 
 class SignInScreen extends StatelessWidget {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +48,7 @@ class SignInScreen extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.black,
                                 ),
-                                // controller: usernameController,
+                                controller: email,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(),
                                   enabledBorder: OutlineInputBorder(
@@ -79,7 +83,7 @@ class SignInScreen extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.black,
                                 ),
-                                // controller: passwordController,
+                                controller: password,
                                 obscureText: true,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(),
@@ -122,12 +126,8 @@ class SignInScreen extends StatelessWidget {
                                   child: IconButton(
                                     color: Colors.white,
                                     onPressed: () {
-                                      Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => MyHomePage(),
-                                        ),
-                                      );
+                                      LoginController(
+                                          context, email.text, password.text);
                                     },
                                     icon: Icon(
                                       Icons.arrow_forward,
@@ -177,7 +177,8 @@ class SignInScreen extends StatelessWidget {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => MyHomePage()),
+                                          builder: (context) =>
+                                              MyHomePage("none", "Guest user")),
                                     );
                                   },
                                   child: Text(
