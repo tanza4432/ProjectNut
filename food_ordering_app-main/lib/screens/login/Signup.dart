@@ -1,10 +1,13 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:restaurant/component/WillPop.dart';
 import 'package:restaurant/screens/login/Signin.dart';
 import 'package:restaurant/theme/Style.dart';
 
 import '../../controllers/LoginController.dart';
-import '../../model/LoginModel.dart';
+
+enum BestTutorSite { user, employer }
 
 class SignupScreen extends StatefulWidget {
   TextEditingController name = new TextEditingController();
@@ -12,6 +15,7 @@ class SignupScreen extends StatefulWidget {
   TextEditingController password = new TextEditingController();
   TextEditingController passwordconfirm = new TextEditingController();
   TextEditingController tel = new TextEditingController();
+  BestTutorSite _site = BestTutorSite.user;
 
   @override
   _SignupScreenState createState() => _SignupScreenState();
@@ -75,6 +79,42 @@ class _SignupScreenState extends State<SignupScreen> {
                             SizedBox(
                               height: 20,
                             ),
+                            Container(
+                              margin: const EdgeInsets.only(left: 50.0),
+                              child: ListTile(
+                                title: const Text(
+                                  'นักรีวิว',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                leading: Radio(
+                                  value: BestTutorSite.user,
+                                  groupValue: widget._site,
+                                  onChanged: (BestTutorSite value) {
+                                    setState(() {
+                                      widget._site = value;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(left: 50.0),
+                              child: ListTile(
+                                title: const Text(
+                                  'เจ้าของร้าน',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                leading: Radio(
+                                  value: BestTutorSite.employer,
+                                  groupValue: widget._site,
+                                  onChanged: (BestTutorSite value) {
+                                    setState(() {
+                                      widget._site = value;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
                             Row(
                               children: [
                                 SizedBox(width: 39),
@@ -96,7 +136,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                                       widget.email.text,
                                                       widget.name.text,
                                                       widget.password.text,
-                                                      widget.tel.text);
+                                                      widget.tel.text,
+                                                      widget._site);
                                                 } else {
                                                   showDialog(
                                                     context: context,

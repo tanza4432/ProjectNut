@@ -4,6 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:restaurant/component/alert.dart';
 import 'package:restaurant/dashboard.dart';
+import 'package:restaurant/dashboard_1.dart';
 
 class MapShow extends StatefulWidget {
   final type;

@@ -8,7 +8,6 @@ class detailReview extends StatefulWidget {
 }
 
 class _detailReviewState extends State<detailReview> {
-
   final List<String> reviewimg = [
     "https://www.paiduaykan.com/travel/wp-content/uploads/2020/10/44-SON00466.jpg",
     "https://img.wongnai.com/p/256x256/2019/10/16/c49384e7bdae41a1bce9c21ddd4109a7.jpg",
@@ -18,7 +17,7 @@ class _detailReviewState extends State<detailReview> {
   ];
 
   bool isVisible = false;
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -81,8 +80,7 @@ class _detailReviewState extends State<detailReview> {
                 )
               ],
             ),
-            Text(
-                "ดกเ่สกด่เสกาด่เสากด่เสากด่เสากด่เสาก่ดเสากด่เsdfssdf sdfsdfsdf"),
+            Text("GGGGGGGGGGGGGGGGGGGG"),
             SizedBox(height: 24.0),
             if (!isVisible)
               InkWell(

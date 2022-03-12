@@ -1,22 +1,37 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:restaurant/dashboard_1.dart';
+import 'package:restaurant/screens/employer/Addshop.dart';
 
 import '../dashboard.dart';
 import '../model/LoginModel.dart';
 import '../screens/login/Signin.dart';
+import '../screens/login/Signup.dart';
 import '../services/LoginService.dart';
 
 Future<LoginModel> LoginController(
     BuildContext context, String email, String password) async {
   final response = await LoginService(email, password);
   if (response.type != "none") {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MyHomePage(response.type, response.name),
-      ),
-    );
+    switch (response.type) {
+      case "user":
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => MyHomePage(response.type, response.name),
+          ),
+        );
+        break;
+      default:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => EmployerPage(),
+          ),
+        );
+        break;
+    }
   } else {
     showDialog(
       context: context,
@@ -39,8 +54,8 @@ Future<LoginModel> LoginController(
 }
 
 Future<void> RegisterController(BuildContext context, String email, String name,
-    String password, String tel) async {
-  final response = await RegisterService(email, name, password, tel);
+    String password, String tel, BestTutorSite type) async {
+  final response = await RegisterService(email, name, password, tel, type);
   if (response == "true") {
     showDialog(
       context: context,

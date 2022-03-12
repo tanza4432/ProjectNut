@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant/dashboard.dart';
+import 'dashboard_1.dart';
 import 'theme/Style.dart';
 
 void main() => runApp(MyApp());
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'แอปพลิเคชันค้นหาร้านอาหาร เพื่อกรณีศึกษา',
+      title: 'แอปพลิเคชันค้นหาร้านคาเฟ่ เพื่อกรณีศึกษา',
       theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: kPrimaryColor,

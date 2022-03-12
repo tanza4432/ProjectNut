@@ -6,6 +6,7 @@ import '../http/host.dart';
 import 'package:http/http.dart' as http;
 
 import '../model/LoginModel.dart';
+import '../screens/login/Signup.dart';
 
 Future<LoginModel> LoginService(String email, String password) async {
   String passwordHash = md5.convert(utf8.encode(password)).toString();
@@ -19,13 +20,18 @@ Future<LoginModel> LoginService(String email, String password) async {
   return LoginModel.fromJson(jsonDecode(response.body));
 }
 
-Future<String> RegisterService(
-    String email, String name, String password, String tel) async {
+Future<String> RegisterService(String email, String name, String password,
+    String tel, BestTutorSite type) async {
   try {
-    print(email);
-    print(name);
-    print(password);
-    print(tel);
+    var permission = "";
+    switch (type.index) {
+      case 0:
+        permission = "user";
+        break;
+      case 1:
+        permission = "employer";
+        break;
+    }
     final String passwordHash = md5.convert(utf8.encode(password)).toString();
     final String Url = Host + "/api/account/";
     final response = await http.post(
@@ -38,7 +44,7 @@ Future<String> RegisterService(
         "id_store": email,
         "name": name,
         "password": passwordHash,
-        "type": "user",
+        "type": permission,
         "tel": tel,
       }),
     );
