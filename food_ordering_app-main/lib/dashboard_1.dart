@@ -6,16 +6,9 @@ import 'package:restaurant/screens/login/Signin.dart';
 import 'component/WillPop.dart';
 import 'component/detail.dart';
 import 'model/SearchModel.dart';
+import 'theme/Style.dart';
 import 'transition_route_observer.dart';
 import 'widgets/fade_in.dart';
-
-// class MyHomePage extends StatefulWidget {
-//   final type;
-//   final name;
-//   MyHomePage(this.type, this.name);
-//   @override
-//   _MyHomePageState createState() => _MyHomePageState();
-// }
 
 class MyHomePage extends StatefulWidget {
   static const routeName = '/dashboard';
@@ -174,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage>
         child: Scaffold(
           appBar: _buildAppBar(theme),
           body: Material(
-            color: Colors.transparent,
+            color: kPrimaryColor,
             child: Column(
               children: [
                 Container(
@@ -278,6 +271,30 @@ class _MyHomePageState extends State<MyHomePage>
                         ),
                         SizedBox(
                           height: 20,
+                        ),
+                        deatil(
+                          "hotel1",
+                          "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์",
+                          widget.type,
+                          widget.name,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        deatil(
+                          "hotel1",
+                          "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์",
+                          widget.type,
+                          widget.name,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        deatil(
+                          "hotel1",
+                          "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์",
+                          widget.type,
+                          widget.name,
                         ),
                       ],
                     ),
