@@ -7,6 +7,8 @@ const {
   deleteAccount,
 } = require("../controllers/loginController");
 
+const { getStore } = require("../controllers/storeController");
+
 const router = express.Router();
 
 // router.get("/account", getAllAccount);
@@ -16,7 +18,7 @@ router.put("/account/:id", updateAccount);
 router.delete("/account/:id", deleteAccount);
 
 // stores
-router.get("/store", );
+router.get("/store", getStore);
 
 module.exports = {
   routes: router,
