@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage>
       onPressed: () {},
     );
     final signOutBtn = IconButton(
-      icon: const Icon(Icons.signpost_outlined),
+      icon: const Icon(Icons.arrow_forward_ios_outlined),
       color: theme.colorScheme.secondary,
       onPressed: () => _goToLogin(context),
     );
