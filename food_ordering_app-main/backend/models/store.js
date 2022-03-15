@@ -2,6 +2,7 @@ class StoreModel {
   constructor(
     id,
     address,
+    idstore,
     image,
     latitude,
     longitude,
@@ -13,6 +14,7 @@ class StoreModel {
   ) {
     this.id = id;
     this.address = address;
+    this.idstore = idstore;
     this.image = image;
     this.latitude = latitude;
     this.longitude = longitude;
@@ -23,5 +25,6 @@ class StoreModel {
     this.website = website;
   }
 }
+
 
 module.exports = StoreModel;
