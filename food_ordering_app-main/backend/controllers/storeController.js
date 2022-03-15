@@ -3,6 +3,8 @@
 const firebase = require("../db");
 const firestore = firebase.firestore();
 const StoreModel = require("../models/store");
+const storage = require("../storage");
+const bucket = storage.bucket();
 
 const getStore = async (req, res, next) => {
   try {
