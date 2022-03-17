@@ -12,7 +12,8 @@ class hotelPage extends StatefulWidget {
   final type;
   final user;
   final name;
-  hotelPage(this.name, this.type, this.user);
+  final id;
+  hotelPage(this.name, this.type, this.user, this.id);
   @override
   _hotelPageState createState() => _hotelPageState(name);
 }
@@ -77,7 +78,7 @@ class _hotelPageState extends State<hotelPage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => MyHomePage(
-                                            widget.type, widget.user),
+                                            widget.type, widget.user, widget.id),
                                       ),
                                     );
                                   },
@@ -95,7 +96,7 @@ class _hotelPageState extends State<hotelPage> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
-                                              MapShow(widget.type, widget.user),
+                                              MapShow(widget.type, widget.user, widget.id),
                                         ),
                                       );
                                     },

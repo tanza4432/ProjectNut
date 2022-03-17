@@ -37,6 +37,6 @@ class MyApp extends StatelessWidget {
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MyHomePage("none", "Guest user");
+    return MyHomePage("none", "Guest user", "");
   }
 }

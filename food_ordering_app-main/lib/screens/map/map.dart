@@ -9,7 +9,8 @@ import 'package:restaurant/dashboard_1.dart';
 class MapShow extends StatefulWidget {
   final type;
   final name;
-  MapShow(this.type, this.name);
+  final id;
+  MapShow(this.type, this.name,this.id);
   @override
   _MapShowState createState() => _MapShowState();
 }
@@ -115,7 +116,7 @@ class _MapShowState extends State<MapShow> {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => MyHomePage(widget.type, widget.name),
+                builder: (context) => MyHomePage(widget.type, widget.name, widget.id),
               ),
             );
           },

@@ -21,7 +21,7 @@ Future<LoginModel> LoginController(BuildContext context, String email,
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => MyHomePage(response.type, response.name),
+            builder: (context) => MyHomePage(response.type, response.name, response.id),
           ),
         );
         break;
@@ -29,7 +29,7 @@ Future<LoginModel> LoginController(BuildContext context, String email,
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => MyHomePage(response.type, response.name),
+            builder: (context) => MyHomePage(response.type, response.name, response.id),
           ),
         );
         break;

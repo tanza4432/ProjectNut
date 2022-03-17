@@ -14,9 +14,11 @@ class MyHomePage extends StatefulWidget {
   static const routeName = '/dashboard';
   final type;
   final name;
+  final id;
   MyHomePage(
     this.type,
     this.name,
+    this.id
   );
 
   @override
@@ -268,6 +270,7 @@ class _MyHomePageState extends State<MyHomePage>
                           "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์",
                           widget.type,
                           widget.name,
+                          widget.id
                         ),
                         SizedBox(
                           height: 20,
@@ -277,6 +280,7 @@ class _MyHomePageState extends State<MyHomePage>
                           "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์",
                           widget.type,
                           widget.name,
+                          widget.id
                         ),
                         SizedBox(
                           height: 20,
@@ -286,6 +290,7 @@ class _MyHomePageState extends State<MyHomePage>
                           "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์",
                           widget.type,
                           widget.name,
+                          widget.id
                         ),
                         SizedBox(
                           height: 20,
@@ -295,6 +300,7 @@ class _MyHomePageState extends State<MyHomePage>
                           "ร้านคอฟฟี่วิว น้ำหนาว จ. เพชรบูรณ์",
                           widget.type,
                           widget.name,
+                          widget.id
                         ),
                       ],
                     ),

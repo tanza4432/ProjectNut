@@ -203,7 +203,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     MyHomePage(
-                                                        "none", "Guest user")),
+                                                        "none", "Guest user", "")),
                                           );
                                         },
                                         child: Text(

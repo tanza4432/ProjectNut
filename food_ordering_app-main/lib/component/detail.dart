@@ -7,7 +7,8 @@ class deatil extends StatelessWidget {
   final name;
   final type;
   final user;
-  deatil(this.img, this.name, this.type, this.user);
+  final id;
+  deatil(this.img, this.name, this.type, this.user, this.id);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -72,6 +73,7 @@ class deatil extends StatelessWidget {
                   name,
                   type,
                   name,
+                  id
                 ),
               ),
             );
