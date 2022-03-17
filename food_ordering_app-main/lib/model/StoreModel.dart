@@ -59,15 +59,3 @@ class StoreModel {
         "website": website,
     };
 }
-
-class ImageModel {
-  String link;
-  ImageModel({this.link});
-  factory ImageModel.fromJson(Map<String, dynamic> json) => ImageModel(
-        link: json["link"] == null ? null : json["link"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "link": link == null ? null : link,
-      };
-}
