@@ -2,13 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:restaurant/listrestaurant/HotelPage.dart';
 import 'package:restaurant/theme/Style.dart';
 
-class deatil extends StatelessWidget {
-  final img;
-  final name;
-  final type;
-  final user;
+class detail extends StatelessWidget {
   final id;
-  deatil(this.img, this.name, this.type, this.user, this.id);
+  final address;
+  final idstore;
+  final image;
+  final latitude;
+  final longitude;
+  final name;
+  final open;
+  final tel;
+  final total_review;
+  final website;
+  final type;
+  final iduser;
+  final username;
+  detail(
+      this.id,
+      this.address,
+      this.idstore,
+      this.image,
+      this.latitude,
+      this.longitude,
+      this.name,
+      this.open,
+      this.tel,
+      this.total_review,
+      this.website,
+      this.type,
+      this.iduser,
+      this.username);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -17,9 +40,14 @@ class deatil extends StatelessWidget {
           height: 100,
           width: 100,
           decoration: BoxDecoration(
-              image:
-                  DecorationImage(image: AssetImage("assets/images/$img.png"))),
+            image: DecorationImage(
+                image: NetworkImage(image == ""
+                    ? "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png"
+                    : image),
+                fit: BoxFit.scaleDown),
+          ),
         ),
+        SizedBox(width: 10),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +86,7 @@ class deatil extends StatelessWidget {
                 ],
               ),
               Text(
-                "Lorem ipsum sits dolar amet is for publishing",
+                "เวลา : " + open + "\nเบอร์โทร : " + tel,
                 style: TextStyle(fontSize: 12),
               )
             ],
@@ -70,11 +98,20 @@ class deatil extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => hotelPage(
-                  name,
-                  type,
-                  name,
-                  id
-                ),
+                    id,
+                    address,
+                    idstore,
+                    image,
+                    latitude,
+                    longitude,
+                    name,
+                    open,
+                    tel,
+                    total_review,
+                    website,
+                    type,
+                    iduser,
+                    username),
               ),
             );
           },
@@ -84,7 +121,7 @@ class deatil extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(40)),
                 color: greenBtn),
             child: Text(
-              "รายละเอียด",
+              idstore == iduser ? "แก้ไขข้อมูล" : "รายละเอียด",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,

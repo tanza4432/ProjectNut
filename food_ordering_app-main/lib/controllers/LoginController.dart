@@ -101,7 +101,8 @@ Future<void> RegisterController(
             FlatButton(
               child: Text("ตกลง"),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SignupScreen()));
               },
             )
           ],

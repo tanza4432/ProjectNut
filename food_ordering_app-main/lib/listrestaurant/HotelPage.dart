@@ -5,23 +5,45 @@ import 'package:restaurant/component/WillPop.dart';
 import 'package:restaurant/dashboard.dart';
 import 'package:restaurant/dashboard_1.dart';
 import 'package:restaurant/listrestaurant/detailReview/detailReview.dart';
+import 'package:restaurant/screens/employer/Addshop.dart';
 import 'package:restaurant/screens/map/map.dart';
 import 'package:restaurant/theme/Style.dart';
 
 class hotelPage extends StatefulWidget {
-  final type;
-  final user;
-  final name;
   final id;
-  hotelPage(this.name, this.type, this.user, this.id);
+  final address;
+  final idstore;
+  final image;
+  final latitude;
+  final longitude;
+  final name;
+  final open;
+  final tel;
+  final total_review;
+  final website;
+  final type;
+  final iduser;
+  final username;
+  hotelPage(
+      this.id,
+      this.address,
+      this.idstore,
+      this.image,
+      this.latitude,
+      this.longitude,
+      this.name,
+      this.open,
+      this.tel,
+      this.total_review,
+      this.website,
+      this.type,
+      this.iduser,
+      this.username);
   @override
-  _hotelPageState createState() => _hotelPageState(name);
+  _hotelPageState createState() => _hotelPageState();
 }
 
 class _hotelPageState extends State<hotelPage> {
-  _hotelPageState(this.name);
-  final name;
-
   final List<String> imageList = [
     "https://phetchabun.org/wp-content/uploads/2018/08/2.jpg",
     "https://phetchabun.org/wp-content/uploads/2018/08/5.jpg",
@@ -55,8 +77,10 @@ class _hotelPageState extends State<hotelPage> {
                       decoration: BoxDecoration(
                           color: blue,
                           image: DecorationImage(
-                              image: AssetImage("assets/images/hotelBig.png"),
-                              fit: BoxFit.cover),
+                              image: NetworkImage(widget.image == ""
+                                  ? "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png"
+                                  : widget.image),
+                              fit: BoxFit.scaleDown),
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(40),
                               bottomRight: Radius.circular(40))),
@@ -70,41 +94,75 @@ class _hotelPageState extends State<hotelPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      isVisible = false;
-                                    });
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => MyHomePage(
-                                            widget.type, widget.user, widget.id),
-                                      ),
-                                    );
-                                  },
-                                  icon: Icon(
-                                    Icons.arrow_back,
-                                    color: Colors.white,
-                                  )),
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => MyHomePage(
+                                          widget.type,
+                                          widget.username,
+                                          widget.iduser),
+                                    ),
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.white,
+                                ),
+                              ),
                               Container(
                                 decoration: BoxDecoration(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10))),
-                                child: IconButton(
-                                    onPressed: () {
-                                      Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              MapShow(widget.type, widget.user, widget.id),
-                                        ),
-                                      );
-                                    },
-                                    icon: Icon(
-                                      Icons.fmd_good_outlined,
-                                      size: 35,
-                                      color: Colors.white,
-                                    )),
+                                child: Row(
+                                  children: [
+                                    widget.idstore == widget.iduser ?  IconButton(
+                                      onPressed: () {
+                                        Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => EmployerPage(
+                                                widget.id,
+                                                widget.address,
+                                                widget.idstore,
+                                                widget.image,
+                                                widget.latitude,
+                                                widget.longitude,
+                                                widget.name,
+                                                widget.open,
+                                                widget.tel,
+                                                widget.total_review,
+                                                widget.website,
+                                                widget.type,
+                                                widget.iduser,
+                                                widget.username),
+                                          ),
+                                        );
+                                      },
+                                      icon: Icon(
+                                        Icons.edit,
+                                        color: Colors.white,
+                                      ),
+                                    ) : Container(),
+                                    IconButton(
+                                        onPressed: () {
+                                          Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => MapShow(
+                                                  widget.type,
+                                                  widget.username,
+                                                  widget.iduser),
+                                            ),
+                                          );
+                                        },
+                                        icon: Icon(
+                                          Icons.fmd_good_outlined,
+                                          size: 35,
+                                          color: Colors.white,
+                                        )),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -121,7 +179,7 @@ class _hotelPageState extends State<hotelPage> {
                                     height: 20,
                                   ),
                                   Text(
-                                    name,
+                                    widget.name,
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w700,
@@ -204,7 +262,8 @@ class _hotelPageState extends State<hotelPage> {
                           SizedBox(
                             height: 10,
                           ),
-                          placesWidget("food1", name),
+                          placesWidget(widget.name, widget.tel, widget.address,
+                              widget.open, widget.website),
                           SizedBox(
                             height: 10,
                           ),
@@ -307,10 +366,12 @@ class _hotelPageState extends State<hotelPage> {
     );
   }
 
-  Padding placesWidget(String img, String name) {
+  Padding placesWidget(
+      String name, String tel, String address, String time, String web) {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Container(
+        alignment: Alignment.centerLeft,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -319,21 +380,21 @@ class _hotelPageState extends State<hotelPage> {
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
             Text(
-              "ติดต่อ : 088-888-8888",
+              "ติดต่อ : " + tel,
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
             Text(
-              "สถานที่ตั้ง : 452 ตำบล วังกวาง อำเภอ น้ำหนาว เพชรบูรณ์ 67260",
+              "สถานที่ตั้ง : " + address,
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
+            Text(
+              "เวลา เปิด-ปิด : " + time,
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            Text("เว็บไซต์ : " + web,
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold))
           ],
-        )
-        // Container(
-        //   height: 100,
-        //   width: 100,
-
-        // ),
-        ,
+        ),
       ),
     );
   }
