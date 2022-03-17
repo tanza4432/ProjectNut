@@ -51,6 +51,7 @@ const Login = async (req, res, next) => {
       res.status(404).send({ type: "none" });
     }
     return res.status(200).send({
+      id: fetchAccount.docs[0].id,
       type: fetchAccount.docs[0].data().type,
       name: fetchAccount.docs[0].data().name,
     });

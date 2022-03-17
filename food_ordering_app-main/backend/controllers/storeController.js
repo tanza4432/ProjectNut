@@ -116,7 +116,7 @@ const getStoreView = async (req, res, next) => {
     data.forEach((doc) => {
       const fetchStore = {
         id: doc.id,
-        idsotre: doc.data().idstore,
+        idstore: doc.data().idstore,
         image: doc.data().image,
       };
       storeArray.push(fetchStore);

@@ -29,7 +29,7 @@ Future<LoginModel> LoginController(BuildContext context, String email,
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => EmployerPage(),
+            builder: (context) => MyHomePage(response.type, response.name),
           ),
         );
         break;
@@ -44,7 +44,12 @@ Future<LoginModel> LoginController(BuildContext context, String email,
             FlatButton(
               child: Text("ตกลง"),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SignInScreen(),
+                  ),
+                );
               },
             )
           ],
