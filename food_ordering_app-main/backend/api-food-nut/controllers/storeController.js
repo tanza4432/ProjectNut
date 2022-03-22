@@ -37,6 +37,18 @@ const getStore = async (req, res, next) => {
   }
 }
 
+const getStoreByID = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const store = await firestore.collection('stores').doc(id);
+    const data = await store.get();
+
+    return res.status(200).send(data.data());
+  } catch (error) {
+    return res.status(400).send(error)
+  }
+}
+
 const addStore = async (req, res, next) => {
   try {
     const data = req.body
@@ -258,6 +270,7 @@ const updateimgStoreView = async (req, res, next) => {
 
 module.exports = {
   getStore,
+  getStoreByID,
   addStore,
   updateStore,
   addimgStore,

@@ -22,7 +22,8 @@ const {
   getStoreView,
   addimgStoreView,
   delimgStoreView,
-  updateimgStoreView
+  updateimgStoreView,
+  getStoreByID
 } = require('../controllers/storeController')
 
 const { sendEmail } = require('../controllers/forgotController')
@@ -40,6 +41,7 @@ router.post('/forgot', sendEmail)
 
 // stores
 router.get('/store', getStore)
+router.get('/store/:id', getStoreByID)
 router.post('/store/add', addStore)
 router.put('/store/update/:id', updateStore)
 router.post('/store/uploadimg/:id', multer.single('img'), addimgStore)
